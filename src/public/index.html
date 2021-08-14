@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>socket crud web</title>
+</head>
+<body>
+    <div class="container">
+        <form class="form_text" id="note_form">
+            <h1>Añadir Nota</h1>
+            <input type="text" id="titulo" name="titulo" placeholder="titulo" autofocus>
+            <input type="text" id="descripcion" name="descripcion" placeholder="descripcion">
+            <button>enviar</button>
+        </form>
+        <div id="notes"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.min.js"></script>
+    <script src="./ui.js"></script>
+    <script src="./socket.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
