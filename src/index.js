@@ -32,11 +32,13 @@ io.on('connection', (socket) => {
         console.log(notes)
     })
 
+    //traemos los datos desde la base de datos y se la enviamos al fronted
     socket.on('client:getNote', (noteId) => {
         const note = notes.find((note) => note.id === noteId) //buscamos la nota y se la mandamos al fronted
         socket.emit('server:selectedNote', note)
     })
 
+    //actualizando nota
     socket.on('client:updatedNote', (updatedNote) => {
         notes = notes.map((note) => {
             if(note.id === updatedNote.id){

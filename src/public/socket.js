@@ -19,11 +19,21 @@ const savedNote = (titulo, descripcion) => {
 const deleteNote = (noteId) => {
     socket.emit('client:deleteNote', noteId)
 }
-
+/**
+ * 
+ * get note for updated
+ * @param {string} noteId id note
+ */
 const getNote = (noteId) => {
     socket.emit('client:getNote', noteId)
 }
-
+/**
+ * 
+ * updated note
+ * @param {string} id id note
+ * @param {string} titulo title note
+ * @param {string} descripcion description note
+ */
 const updateNote = (id, titulo, descripcion) => {
     socket.emit('client:updatedNote', {
         id,
