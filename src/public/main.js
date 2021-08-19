@@ -7,12 +7,9 @@ const descripcion = document.querySelector('#descripcion')
 
     if(SavedId){  //valimos si el usuario esta actualizando o creando una nueva nota
       updateNote(SavedId, titulo.value, descripcion.value)
-      console.log('desde el metodo updateNote');
     }else{
         savedNote(titulo.value, descripcion.value)
     }
-    
-    // SavedId ? updateNote(SavedId, titulo.value, descripcion.value) : savedNote(titulo.value, descripcion.value)
 
     titulo.value = ''
     descripcion.value = ''
