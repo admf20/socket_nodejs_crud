@@ -1,5 +1,7 @@
 const notesList = document.querySelector('#notes')
 
+let SavedId = ''
+
 const NoteUI = (note) => {
 
     const div = document.createElement('div') //creo un elemento div y en donde le agrego toda la interfaz que tiene el titulo, descripcion y los botones de eliminar y actualizar

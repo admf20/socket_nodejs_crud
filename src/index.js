@@ -15,26 +15,37 @@ io.on('connection', (socket) => {
     console.log('Nueva Conexion con Socket', socket.id)
 
     //encviar todas las notas al fronted
-    socket.emit('server:loadnotes', notes)
+    io.emit('server:loadnotes', notes)
 
     //crear una nota
     socket.on('client:newNote', (NewNote) => {
         const newnote = { ...NewNote, id: uuid4()}
         notes.push(newnote)
 
-        socket.emit('server:newnotes', newnote)
+        io.emit('server:newnotes', newnote)
     })
 
     //eliminar nota
     socket.on('client:deleteNote', (noteId) => { 
         notes = notes.filter((note) => note.id !== noteId) 
-        socket.emit('server:loadnotes', notes)
+        io.emit('server:loadnotes', notes)
         console.log(notes)
     })
 
     socket.on('client:getNote', (noteId) => {
-        const note = notes.find((note) => note.id === noteId)
+        const note = notes.find((note) => note.id === noteId) //buscamos la nota y se la mandamos al fronted
         socket.emit('server:selectedNote', note)
+    })
+
+    socket.on('client:updatedNote', (updatedNote) => {
+        notes = notes.map((note) => {
+            if(note.id === updatedNote.id){
+            note.titulo = updatedNote.titulo
+            note.descripcion = updatedNote.descripcion
+            }
+            return note
+        })
+        io.emit('server:loadnotes', notes) //le enviamos la nueva nota actualizada
     })
 })
 
