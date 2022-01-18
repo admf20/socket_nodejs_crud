@@ -14,7 +14,7 @@ let notes = []
 io.on('connection', (socket) => {
     console.log('Nueva Conexion con Socket', socket.id)
 
-    //encviar todas las notas al fronted
+    //enviar todas las notas al fronted
     io.emit('server:loadnotes', notes)
 
     //crear una nota

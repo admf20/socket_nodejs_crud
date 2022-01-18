@@ -4,7 +4,7 @@ let SavedId = ''
 
 const NoteUI = (note) => {
 
-    const div = document.createElement('div') //creo un elemento div y en donde le agrego toda la interfaz que tiene el titulo, descripcion y los botones de eliminar y actualizar
+    const div = document.createElement('div') //TODO:creo un elemento div y en donde le agrego toda la interfaz que tiene el titulo, descripcion y los botones de eliminar y actualizar
         div.innerHTML = 
             `
             <div>
@@ -39,7 +39,7 @@ const NoteUI = (note) => {
 const renderNotes = (notes) => { //aca retorno todas las notas existentes actualmente
     notesList.innerHTML = ''
     notes.forEach(notes => {
-        notesList.append(NoteUI(notes))  //append es para agregar un elemento que en este caso seria para 'notesList' en donde agrego varias notas
+        notesList.append(NoteUI(notes))  //TODO:append es para agregar un elemento que en este caso seria para 'notesList' en donde agrego varias notas
     })
 }
 
